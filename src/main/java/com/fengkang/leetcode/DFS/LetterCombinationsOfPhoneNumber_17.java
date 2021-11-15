@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LetterCombinationsOfPhoneNumber_17 {
-	private List<String> res;
+	private List<String> res = new ArrayList<>();
 	
 	
 	public List<String> letterCombinations(String digits) {
@@ -17,21 +17,22 @@ public class LetterCombinationsOfPhoneNumber_17 {
 		numberList.add("pqrs");
 		numberList.add("tuv");
 		numberList.add("wxyz");
-		help("", 0, digits, numberList);
+		help(new StringBuilder(), 0, digits, numberList);
 		return res;
 	}
 	
-	void help(String ans, int j, String digits, List<String> numberList) {
+	void help(StringBuilder ans, int j, String digits, List<String> numberList) {
 		if (j == digits.length()) {
-			res.add(ans);
+			res.add(ans.toString());
 			return;
-		} else {
-			String curStr = numberList.get(digits.charAt(j) - '0' - 2);
-			for (int i = 0; i < curStr.length(); i++) {
-				ans += curStr.charAt(i);
-				help(ans, j + 1, digits, numberList);
-			}
 		}
+		String curStr = numberList.get(digits.charAt(j) - '0' - 2);
+		for (int i = 0; i < curStr.length(); i++) {
+			ans.append(curStr.charAt(i));
+			help(ans, j + 1, digits, numberList);
+			ans.deleteCharAt(j);
+		}
+		
 		
 	}
 	
