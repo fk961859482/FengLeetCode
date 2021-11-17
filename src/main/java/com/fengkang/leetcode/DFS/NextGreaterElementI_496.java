@@ -33,7 +33,7 @@ public class NextGreaterElementI_496 {
     }
 
     public static void main(String[] args) {
-         NextGreaterElementI_496 o = new NextGreaterElementI_496();
+         com.fengkang.leetcode.monostack.NextGreaterElementI_496 o = new com.fengkang.leetcode.monostack.NextGreaterElementI_496();
          o.nextGreaterElement(new int[]{2,4}, new int[]{1,2,3,4});
     }
 
